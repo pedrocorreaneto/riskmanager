@@ -1,0 +1,17 @@
+<p>
+  <strong>Solution:</strong>
+  <%= solution.title %>
+</p>
+<p>
+  <strong>Description:</strong></br>
+  <%= solution.description %>
+</p>
+<p>
+  <strong>Cons:</strong></br>
+  <%= solution.cons %>
+</p>
+<p>
+  <%= link_to 'Edit', edit_threat_solution_path(threat_id: solution.threat_id, id: solution.id) %>
+  <%= link_to 'Destroy', [solution.threat, solution], method: :delete, data: {confirm: 'Are you sure?'} %>
+</p>
+

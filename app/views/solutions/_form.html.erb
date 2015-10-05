@@ -1,0 +1,17 @@
+<%= form_for([@threat, @solution]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :cons %><br>
+    <%= f.text_area :cons %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
