@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.select :category, Threat::CATEGORY%>
   </div>
   <div class="field">
     <%= f.label :description %><br>

@@ -1,15 +1,21 @@
 #TODO
-##Criação e relacionamento
+
+##Validação e regras de negocio
+remover as threats ja adicionadas no projetos
+impedir a remoçao de threats que ainda existam requisitos
+ao remover um threat remover as soluçoes em conjunto
+ao remover um projeto remover os requisitos em conjunto
+
+##Embelezamento
+
+#DONE
+Se a category da threat faz parte de algumas citas
+
 Criar projeto
 apartir do projeto adicionar requisitos
 criar requisitos duas etapas???
 adicionar projeto a parte central
 
-##Validação e regras de negocio
-Se a category da threat faz parte de algumas citas
-##Embelezamento
-
-#DONE
 Criar soluctions
 relacionar soluctions com Threat
 Como funciona o form_for @base, @base.subitem.build

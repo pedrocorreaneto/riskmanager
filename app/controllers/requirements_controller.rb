@@ -3,7 +3,11 @@ class RequirementsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @requirement = @project.requirements.create(requirements_params)
-    redirect_to edit_project_requirement_path @project, @requirement
+    if @requirement.valid?
+      redirect_to edit_project_requirement_path @project, @requirement
+    else
+      redirect_to project_path(@project)
+    end
   end
   def edit
     @threat = @requirement.threat
