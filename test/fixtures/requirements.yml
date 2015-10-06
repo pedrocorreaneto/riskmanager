@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 
+  threat_id: 
+  solution_id: 
+  riskaccept: false
+
+two:
+  project_id: 
+  threat_id: 
+  solution_id: 
+  riskaccept: false

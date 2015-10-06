@@ -1,0 +1,22 @@
+<h1> Editing security requirement</h1>
+<h2>
+  <strong>Project:</strong>
+  <%= @requirement.project.title %>
+</h2>
+<%=render @threat %>
+<h2> Solution </h2>
+<%= form_for ([@requirement.project, @requirement]) do |f| %>
+  <p>
+    <%= f.label :solution %>
+    <%= f.select :solution_id, @solutions.collect {|s| [s.title,s.id]} %>
+  </p>
+  <p>
+    <%= f.label :riskaccept %>
+    <%= f.check_box :riskaccept %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= render @solutions %>
+<%= link_to 'Back', project_path(@requirement.project) %>
