@@ -11,6 +11,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @requirement = Requirement.new
+    usedthreats = @project.requirements.map {|r| r.threat.id}
+    @threats= Threat.where.not(id: usedthreats)
   end
 
   # GET /projects/new

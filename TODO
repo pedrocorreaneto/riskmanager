@@ -1,17 +1,20 @@
 #TODO
 
 ##Validação e regras de negocio
-remover as threats ja adicionadas no projetos
-impedir a remoçao de threats que ainda existam requisitos
-ao remover um threat remover as soluçoes em conjunto
-ao remover um projeto remover os requisitos em conjunto
-
 ##Embelezamento
 
 #DONE
+impedir a remoçao de threats que ainda existam requisitos
+impedir a remoçao de solution que ainda existam requisitos
+ao remover um threat remover as soluçoes em conjunto
+ao remover um projeto remover os requisitos em conjunto
+caso  ao criar requirement não tenha solução colocar como risco aceito
+
+
 Se a category da threat faz parte de algumas citas
 
 Criar projeto
+remover as threats ja adicionadas no projetos
 apartir do projeto adicionar requisitos
 criar requisitos duas etapas???
 adicionar projeto a parte central

@@ -34,6 +34,8 @@ class RequirementsController < ApplicationController
      @requirement =  Requirement.find params[:id]
    end
    def requirements_params
-     params.require(:requirement).permit(:threat_id, :solution_id, :riskaccept)
+     p=params.require(:requirement).permit(:threat_id, :solution_id, :riskaccept)
+     p[:riskaccept] = true if p[:solution_id].nil?
+     return p
    end
 end

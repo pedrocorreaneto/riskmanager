@@ -11,14 +11,15 @@
 </p>
 
 <%= render @project.requirements %>
-
-<h3>Add a Security Requirements:</h3>
-<%= form_for([@project, @requirement]) do |f| %>
-  <p>
-    <%= f.label :title %>
-    <%= f.select :threat_id, Threat.all.collect{ |t| [t.title, t.id]}  %>   
-    <%= f.submit %>
-  </p>
-<% end %>
+<% if @threats.size > 0 %>
+  <h3>Add a Security Requirements:</h3>
+  <%= form_for([@project, @requirement]) do |f| %>
+    <p>
+      <%= f.label :title %>
+      <%= f.select :threat_id, @threats.collect{ |t| [t.title, t.id]} %>
+      <%= f.submit %>
+    </p>
+  <% end %>
+<% end%>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
