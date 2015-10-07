@@ -8,7 +8,26 @@
 </head>
 <body>
 
-<%= yield %>
+<nav class="navbar navbar-default">
+ <div class="container">
+   <div class="navbar-header">
+     <%= link_to "Security Requirements", root_path, {:class=>"navbar-brand"} %>
+   </div>
+   <div class="navbar-collapse collapse">
+     <ul class="nav navbar-nav">
+       <li class="<%= active_class(projects_path) %>">
+         <%= link_to "Projects", projects_path %>
+       </li>
+       <li class="<%= active_class(threats_path) %>">
+         <%= link_to "Threats", threats_path %>
+       </li>
+     </ul>
+   </div><!--/.nav-collapse -->
+ </div>
+</nav>
 
+<div class='container size'>
+  <%= yield %>
+</div>
 </body>
 </html>

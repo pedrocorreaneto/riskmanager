@@ -1,15 +1,15 @@
-<h1>Threat</h1>
-<p>
-  <strong>Title:</strong>
-  <%= @threat.title %>
-</p>
+<ul class="list-group active" >
+  <li class="list-group-item list-group-item-warning">
+    <strong><%= threat.title %></strong>
+  </li>
 
-<p>
-  <strong>Category:</strong>
-  <%= @threat.category %>
-</p>
+  <li class="list-group-item">
+    <div class="col-sm-2"> Category:</div>
+    <%= threat.category %>
+  </li>
 
-<p>
-  <strong>Description:</strong>
-  <%= @threat.description %>
-</p>
+  <li class="list-group-item">
+    <div class="col-sm-2"> Description:</div>
+    <%= threat.description %>
+  </li>
+</ul>

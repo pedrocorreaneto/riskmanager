@@ -1,17 +1,17 @@
-<p>
-  <strong>Solution:</strong>
-  <%= solution.title %>
-</p>
-<p>
-  <strong>Description:</strong></br>
-  <%= solution.description %>
-</p>
-<p>
-  <strong>Cons:</strong></br>
-  <%= solution.cons %>
-</p>
-<p>
-  <%= link_to 'Edit', edit_threat_solution_path(threat_id: solution.threat_id, id: solution.id) %>
-  <%= link_to 'Destroy', [solution.threat, solution], method: :delete, data: {confirm: 'Are you sure?'} %>
-</p>
-
+<ul class="list-group active" >
+  <li class="list-group-item list-group-item-success">
+    <strong><%= solution.title %></strong>
+  </li>
+  <li class="list-group-item">
+    <div class="col-sm-2">Description:</div>
+    <%= solution.description %>
+  </li>
+  <li class="list-group-item">
+    <div class="col-sm-2">Cons:</div>
+    <%= solution.cons %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to 'Edit', edit_threat_solution_path(solution.threat, solution), {:class=>"btn btn-default"}%>
+    <%= link_to 'Remove', [solution.threat, solution], method: :delete, data: {confirm: 'Are you sure?'}, :class=>"btn btn-default" %>
+  </li>
+</ul>

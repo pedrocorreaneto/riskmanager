@@ -1,22 +1,24 @@
 <h1> Editing security requirement</h1>
 <h2>
   <strong>Project:</strong>
-  <%= @requirement.project.title %>
+  <small> <%= @requirement.project.title %></small>
 </h2>
-<%=render @threat %>
-<h2> Solution </h2>
-<%= form_for ([@requirement.project, @requirement]) do |f| %>
-  <p>
-    <%= f.label :solution %>
-    <%= f.select :solution_id, @solutions.collect {|s| [s.title,s.id]} %>
-  </p>
-  <p>
-    <%= f.label :riskaccept %>
-    <%= f.check_box :riskaccept %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<h3> Threat </h3>
+<%=render @requirement.threat %>
+<h3> Solution </h3>
+<%= form_for([@requirement.project, @requirement], :html => {:class => "form-horizontal"}) do |f| %>
+  <div class="form-group">
+    <%= f.label :solution, {:class=>"col-sm-2 control-label"} %>
+    <div class="col-sm-5">
+      <%= f.select :solution_id, @solutions.collect {|s| [s.title,s.id]}, {}, {:class=>"form-control"} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="checkbox col-sm-2 text-right">
+      <%= f.check_box :riskaccept %>Risk accept
+    </div>
+    <%= f.submit'Save', {:class=>"btn btn-default"} %>
+  </div>
 <% end %>
 <%= render @solutions %>
-<%= link_to 'Back', project_path(@requirement.project) %>
+<%= link_to 'Back', project_path(@requirement.project), {:class=>"btn btn-default"} %>

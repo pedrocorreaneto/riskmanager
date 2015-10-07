@@ -1,29 +1,31 @@
-<h1>Listing threats</h1>
+<h1>Threats</h1>
+<div class='text-right'>
+<%= link_to 'New Threat', new_threat_path, class: "btn btn-default" %>  
+</div>
 
-<table>
+<% Threat::CATEGORY.each do |k, v| %>
+  <% threats = @threats.where(category: v) %>
+  <% if threats.size > 0 %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th ><%= k %></th>
+      <th class='col-sm-1' colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @threats.each do |threat| %>
+    <% threats.each do |threat| %>
       <tr>
         <td><%= threat.title %></td>
-        <td><%= threat.category %></td>
-        <td><%= threat.description %></td>
-        <td><%= link_to 'Show', threat %></td>
-        <td><%= link_to 'Edit', edit_threat_path(threat) %></td>
-        <td><%= link_to 'Destroy', threat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to ' ', threat, {:class=> "glyphicon glyphicon-search"}%></td>
+        <td><%= link_to ' ', edit_threat_path(threat),{:class=>"glyphicon glyphicon-pencil"} %></td>
+        <td><%= link_to ' ', threat, method: :delete, data: { confirm: 'Are you sure?' }, :class=> "glyphicon glyphicon-trash" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Threat', new_threat_path %>
+    
+  <% end %>
+<% end %>

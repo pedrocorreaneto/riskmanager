@@ -1,25 +1,30 @@
-<p id="notice"><%= notice %></p>
+<h1> Project</h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<h3>Title: <small><%= @project.title %></small> </h3>
 
-<p>
-  <strong>Description:</strong>
+
+<h3>
+  Description:
+  <small>
   <%= @project.description %>
-</p>
+  </small>
+</h3>
 
+<div >
+  <%= link_to 'Back', :back, {:class=>"btn btn-default"} %>
+  <%= link_to 'Edit', edit_project_path(@project), {:class=>"btn btn-default"} %> 
+</div>
+</br>
+<h3> Requirements</h3>
 <%= render @project.requirements %>
 <% if @threats.size > 0 %>
   <h3>Add a Security Requirements:</h3>
-  <%= form_for([@project, @requirement]) do |f| %>
-    <p>
-      <%= f.label :title %>
-      <%= f.select :threat_id, @threats.collect{ |t| [t.title, t.id]} %>
-      <%= f.submit %>
-    </p>
+  <%= form_for([@project, @requirement], :html=>{:class => "form-inline"}) do |f| %>
+    <div class="form-group">
+      <%= f.label :title, {:class=>"control-label"} %>
+      <%= f.select :threat_id, @threats.collect{ |t| [t.title, t.id]}, {},{:class=>"form-control"} %>
+      <%= f.submit 'Add requirement', {:class=>"btn btn-default"} %>
+    </div>
   <% end %>
 <% end%>
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+

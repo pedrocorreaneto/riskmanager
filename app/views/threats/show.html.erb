@@ -1,12 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h1>Threat</h1>
 
 <%= render @threat %>
+
+<%= link_to 'Back', threats_path, {:class=>"btn btn-default"} %>
+<%= link_to 'Edit', edit_threat_path(@threat), {:class=>"btn btn-default"} %>
+
 
 <h2>Solutions</h2>
 <%= render @threat.solutions %>
 
 <h3>Add a Solution:</h3>
 <%= render 'solutions/form' %>
-
-<%= link_to 'Edit', edit_threat_path(@threat) %> |
-<%= link_to 'Back', threats_path %>
