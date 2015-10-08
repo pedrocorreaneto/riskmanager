@@ -1,37 +1,28 @@
 #TODO
 ##Embelezamento
+Internacionalização
+#BUGS
+Solution quando não consegue criar limpa a tela
+
+#DONE
 colocar aviso de erro comum a todos
 todas as falhas devem reportar o erro
-Internacionalização
-#DONE
+
 Tirar um print de todas as telas antes
 Colocar nav bar
 melhorar aparecia de todas as telas
 remover o aviso de erro que existe atualmente
-
 impedir a remoçao de threats que ainda existam requisitos
 impedir a remoçao de solution que ainda existam requisitos
 ao remover um threat remover as soluçoes em conjunto
 ao remover um projeto remover os requisitos em conjunto
 caso  ao criar requirement não tenha solução colocar como risco aceito
-
-
 Se a category da threat faz parte de algumas citas
-
 Criar projeto
 remover as threats ja adicionadas no projetos
 apartir do projeto adicionar requisitos
 criar requisitos duas etapas???
 adicionar projeto a parte central
-
 Criar soluctions
 relacionar soluctions com Threat
 Como funciona o form_for @base, @base.subitem.build
-
-
-
-
-
-
-
-

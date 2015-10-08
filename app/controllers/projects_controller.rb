@@ -28,12 +28,13 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+	flash[:success]= 'Project was successfully created.'
+        format.html { redirect_to @project }
         format.json { render :show, status: :created, location: @project }
       else
+	flash_error
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
@@ -45,9 +46,11 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+	flash[:success]= 'Project was successfully updated.'
+        format.html { redirect_to @project }
         format.json { render :show, status: :ok, location: @project }
       else
+	flash_error
         format.html { render :edit }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
@@ -59,12 +62,16 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      flash[:success]= 'Project was successfully destroyed.'
+      format.html { redirect_to projects_url }
       format.json { head :no_content }
     end
   end
 
   private
+   def flash_error
+	flash[:danger] = @project.errors.full_messages if not @project.nil?
+   end
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])

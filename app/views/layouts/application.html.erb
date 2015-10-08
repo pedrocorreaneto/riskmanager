@@ -27,6 +27,16 @@
 </nav>
 
 <div class='container size'>
+ <% flash.each do |key, value| %>
+     <% if value.class == Array %>
+       <% value.each do |message| %>
+         <p class="alert alert-<%= key %>"><%= message %></p>
+       <% end %>
+     <% else %>
+       <p class="alert alert-<%= key %>"><%= value %></p>
+     <% end %>
+ <% end %>
+ <% flash.clear %>
   <%= yield %>
 </div>
 </body>

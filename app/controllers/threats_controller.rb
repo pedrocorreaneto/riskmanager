@@ -1,6 +1,5 @@
 class ThreatsController < ApplicationController
   before_action :set_threat, only: [:show, :edit, :update, :destroy]
-
   # GET /threats
   # GET /threats.json
   def index
@@ -26,12 +25,13 @@ class ThreatsController < ApplicationController
   # POST /threats.json
   def create
     @threat = Threat.new(threat_params)
-
     respond_to do |format|
       if @threat.save
-        format.html { redirect_to @threat, notice: 'Threat was successfully created.' }
+	flash[:success] = 'Threat was successfully created.' 
+        format.html { redirect_to @threat }
         format.json { render :show, status: :created, location: @threat }
       else
+	flash_error
         format.html { render :new }
         format.json { render json: @threat.errors, status: :unprocessable_entity }
       end
@@ -43,9 +43,11 @@ class ThreatsController < ApplicationController
   def update
     respond_to do |format|
       if @threat.update(threat_params)
-        format.html { redirect_to @threat, notice: 'Threat was successfully updated.' }
+	flash[:success] = 'Threat was successfully updated.'
+        format.html { redirect_to @threat }
         format.json { render :show, status: :ok, location: @threat }
       else
+	flash_error
         format.html { render :edit }
         format.json { render json: @threat.errors, status: :unprocessable_entity }
       end
@@ -55,14 +57,22 @@ class ThreatsController < ApplicationController
   # DELETE /threats/1
   # DELETE /threats/1.json
   def destroy
-    @threat.destroy
+    if @threat.destroy
+      flash[:success]= 'Threat was successfully destroyed.'
+    else
+      flash_error
+    end
     respond_to do |format|
-      format.html { redirect_to threats_url, notice: 'Threat was successfully destroyed.' }
-      format.json { head :no_content }
+        format.html { redirect_to threats_url }
+        format.json { head :no_content }
     end
   end
 
   private
+    def flash_error
+      p @threat.errors.full_messages
+      flash[:danger]=@threat.errors.full_messages if not @threat.nil?
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_threat
       @threat = Threat.find(params[:id])
