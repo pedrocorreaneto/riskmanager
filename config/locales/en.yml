@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+  Threat:
+    CATEGORY:
+      s: "Spoofing of user identity"
+      t: "Tampering"
+      r: "Repudiation"
+      i: "Information disclosure"
+      d: "Denial of service"
+      e: "Elevation of privilege"
+  
