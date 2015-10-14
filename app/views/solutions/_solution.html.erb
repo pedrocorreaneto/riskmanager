@@ -11,6 +11,10 @@
     <%= solution.cons %>
   </li>
   <li class="list-group-item">
+    <div class="col-sm-2">Used Times:</div>
+    <%= solution.requirements.size %>
+  </li>
+  <li class="list-group-item">
     <%= link_to 'Edit', edit_threat_solution_path(solution.threat, solution), {:class=>"btn btn-default"}%>
     <%= link_to 'Remove', [solution.threat, solution], method: :delete, data: {confirm: 'Are you sure?'}, :class=>"btn btn-default" %>
   </li>
