@@ -8,7 +8,7 @@
   <div class="form-group">
     <%= f.label :category, {:class=>"col-sm-2 control-label"}%>
     <div class="col-sm-5">
-      <%= f.select :category, Threat::CATEGORY.map{|k,v|t("Threat.CATEGORY." + v )}, {},{:class=>"form-control"}%>
+      <%= f.select :category, Threat::CATEGORY.map{|k,v| [t("Threat.CATEGORY." + v ), v]}, {},{:class=>"form-control"}%>
     </div>
   </div>
   <div class="form-group">
