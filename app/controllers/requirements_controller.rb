@@ -44,7 +44,8 @@ class RequirementsController < ApplicationController
    def requirements_params
      par=params.require(:requirement).permit(:threat_id, :solution_id, :riskaccept)
      par[:riskaccept] = true if par[:solution_id].nil?
-     par[:solution_id] = nil if par[:riskaccept]
+     ###XGH DETECTED
+     par[:solution_id] = nil if not par[:riskaccept]
      par
    end
 end
