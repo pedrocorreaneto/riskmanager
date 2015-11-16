@@ -6,8 +6,8 @@
 <%= link_to 'Edit', edit_threat_path(@threat), {:class=>"btn btn-default"} %>
 
 
-<h2>Solutions</h2>
-<%= render @threat.solutions %>
+<h2>Mitigations</h2>
+<%= render @threat.mitigations %>
 
-<h3>Add a Solution:</h3>
-<%= render 'solutions/form' %>
+<h3>Add a Mitigation:</h3>
+<%= render 'mitigations/form' %>

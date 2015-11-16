@@ -1,6 +1,6 @@
-class CreateSolutions < ActiveRecord::Migration
+class CreateMitigations < ActiveRecord::Migration
   def change
-    create_table :solutions do |t|
+    create_table :mitigations do |t|
       t.string :title
       t.text :description
       t.text :cons

@@ -13,7 +13,7 @@ class RisksController < ApplicationController
   end
   def edit
     @threat = @risk.threat
-    @solutions=@risk.threat.solutions
+    @mitigations=@risk.threat.mitigations
   end
   def destroy
     project=@risk.project
@@ -42,10 +42,10 @@ class RisksController < ApplicationController
      @risk =  Risk.find params[:id]
    end
    def risks_params
-     par=params.require(:risk).permit(:threat_id, :solution_id, :riskaccept)
-     par[:riskaccept] = true if par[:solution_id].nil?
+     par=params.require(:risk).permit(:threat_id, :mitigation_id, :riskaccept)
+     par[:riskaccept] = true if par[:mitigation_id].nil?
      ###XGH DETECTED
-     par[:solution_id] = nil if not par[:riskaccept]
+     par[:mitigation_id] = nil if not par[:riskaccept]
      par
    end
 end

@@ -11,14 +11,14 @@
     </li>
   <% else %>
     <li class="list-group-item list-group-item-success">
-      <strong><%= risk.solution.title %></strong>
+      <strong><%= risk.mitigation.title %></strong>
     </li>
     <li class="list-group-item">
-      <%= risk.solution.description %>
+      <%= risk.mitigation.description %>
     </li>
-    <% if not risk.solution.cons.nil? %>
+    <% if not risk.mitigation.cons.nil? %>
       <li class="list-group-item">
-        <%= risk.solution.cons %>
+        <%= risk.mitigation.cons %>
       </li>
     <% end %>
   <% end %>

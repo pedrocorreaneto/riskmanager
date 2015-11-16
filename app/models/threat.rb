@@ -9,7 +9,7 @@ class Threat < ActiveRecord::Base
    }
 
   before_destroy :check_for_risks
-  has_many :solutions, dependent: :destroy
+  has_many :mitigations, dependent: :destroy
   has_many :risks
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :description, length: { in: 5..256 }

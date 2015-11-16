@@ -1,0 +1,21 @@
+<ul class="list-group active" >
+  <li class="list-group-item list-group-item-success">
+    <strong><%= mitigation.title %></strong>
+  </li>
+  <li class="list-group-item">
+    <div class="col-sm-2">Description:</div>
+    <%= mitigation.description %>
+  </li>
+  <li class="list-group-item">
+    <div class="col-sm-2">Cons:</div>
+    <%= mitigation.cons %>
+  </li>
+  <li class="list-group-item">
+    <div class="col-sm-2">Used Times:</div>
+    <%= mitigation.risks.size %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to 'Edit', edit_threat_mitigation_path(mitigation.threat, mitigation), {:class=>"btn btn-default"}%>
+    <%= link_to 'Remove', [mitigation.threat, mitigation], method: :delete, data: {confirm: 'Are you sure?'}, :class=>"btn btn-default" %>
+  </li>
+</ul>

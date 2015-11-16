@@ -9,7 +9,7 @@ class ThreatsController < ApplicationController
   # GET /threats/1
   # GET /threats/1.json
   def show
-    @solution = Solution.new
+    @mitigation = Mitigation.new
   end
 
   # GET /threats/new
