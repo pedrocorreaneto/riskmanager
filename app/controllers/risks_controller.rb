@@ -1,5 +1,5 @@
 class RisksController < ApplicationController
-  before_action :set_risk, only: [:edit, :destroy, :update]
+  before_action :set_risk, only: [:show, :edit, :destroy, :update]
   def create
     @project = Project.find(params[:project_id])
     @risk = @project.risks.create(risks_params)
@@ -45,7 +45,7 @@ class RisksController < ApplicationController
      par=params.require(:risk).permit(:threat_id, :mitigation_id, :riskaccept)
      par[:riskaccept] = true if par[:mitigation_id].nil?
      ###XGH DETECTED
-     par[:mitigation_id] = nil if not par[:riskaccept]
+     par[:mitigation_id] = nil if par[:riskaccept] =='1'
      par
    end
 end
