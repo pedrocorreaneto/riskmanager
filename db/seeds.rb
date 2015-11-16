@@ -16,7 +16,7 @@ Solution.create!([
   {title: "Temporizador", description: "Após um número finito de tentativas, o sistema irá impedir uma nova tentativa por um tempo determinado", cons: "O usuário legitimo pode ficar sem acesso ao sistema por muito tempo.", usedtimes: nil, threat_id: 1},
   {title: "Bloqueio de conta", description: "Após um número finito de tentativas a conta do usuário pode ser bloqueada", cons: "Se faz necessário uma terceira parte, com autoridade sobre o sistema, para desbloqueio.", usedtimes: nil, threat_id: 1}
 ])
-Requirement.create!([
+Risk.create!([
   {project_id: 1, threat_id: 1, solution_id: nil, riskaccept: true},
   {project_id: 2, threat_id: 1, solution_id: 1, riskaccept: false},
   {project_id: 3, threat_id: 1, solution_id: 2, riskaccept: false},

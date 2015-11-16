@@ -1,12 +1,12 @@
-<h1> Editing security requirement</h1>
+<h1> Editing security risk</h1>
 <h2>
   <strong>Project:</strong>
-  <small> <%= @requirement.project.title %></small>
+  <small> <%= @risk.project.title %></small>
 </h2>
 <h3> Threat </h3>
-<%=render @requirement.threat %>
+<%=render @risk.threat %>
 <h3> Solution </h3>
-<%= form_for([@requirement.project, @requirement], :html => {:class => "form-horizontal"}) do |f| %>
+<%= form_for([@risk.project, @risk], :html => {:class => "form-horizontal"}) do |f| %>
   <div class="form-group">
     <%= f.label :solution, {:class=>"col-sm-2 control-label"} %>
     <div class="col-sm-5">
@@ -21,4 +21,4 @@
   </div>
 <% end %>
 <%= render @solutions %>
-<%= link_to 'Back', project_path(@requirement.project), {:class=>"btn btn-default"} %>
+<%= link_to 'Back', project_path(@risk.project), {:class=>"btn btn-default"} %>

@@ -15,15 +15,15 @@
   <%= link_to 'Edit', edit_project_path(@project), {:class=>"btn btn-default"} %> 
 </div>
 </br>
-<h3> Requirements</h3>
-<%= render @project.requirements %>
+<h3> Risks</h3>
+<%= render @project.risks %>
 <% if @threats.size > 0 %>
-  <h3>Add a Security Requirements:</h3>
-  <%= form_for([@project, @requirement], :html=>{:class => "form-inline"}) do |f| %>
+  <h3>Add a Security Risks:</h3>
+  <%= form_for([@project, @risk], :html=>{:class => "form-inline"}) do |f| %>
     <div class="form-group">
       <%= f.label :title, {:class=>"control-label"} %>
       <%= f.select :threat_id, @threats.collect{ |t| [t.title, t.id]}, {},{:class=>"form-control"} %>
-      <%= f.submit 'Add requirement', {:class=>"btn btn-default"} %>
+      <%= f.submit 'Add risk', {:class=>"btn btn-default"} %>
     </div>
   <% end %>
 <% end%>

@@ -1,0 +1,29 @@
+<ul class="list-group" >
+  <li class="list-group-item list-group-item-info">
+    <strong><%= risk.threat.title %></strong>
+  </li>
+  <li class="list-group-item">
+    <%= risk.threat.description %>
+  </li>
+  <% if risk.riskaccept %>
+    <li class="list-group-item list-group-item-warning">
+      <strong>Risk Accept</strong>
+    </li>
+  <% else %>
+    <li class="list-group-item list-group-item-success">
+      <strong><%= risk.solution.title %></strong>
+    </li>
+    <li class="list-group-item">
+      <%= risk.solution.description %>
+    </li>
+    <% if not risk.solution.cons.nil? %>
+      <li class="list-group-item">
+        <%= risk.solution.cons %>
+      </li>
+    <% end %>
+  <% end %>
+  <li class="list-group-item">
+    <%= link_to 'Edit', edit_project_risk_path(risk.project,risk), {:class=>"btn btn-default"}%>
+    <%= link_to 'Remove', [risk.project, risk], method: :delete, data: {confirm: 'Are you sure?'}, :class=>"btn btn-default" %>
+  </li>
+</ul>
