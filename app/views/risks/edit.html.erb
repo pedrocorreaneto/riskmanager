@@ -5,8 +5,25 @@
 </h2>
 <h3> Threat </h3>
 <%=render @risk.threat %>
-<h3> Mitigation </h3>
+
 <%= form_for([@risk.project, @risk], :html => {:class => "form-horizontal"}) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :probability, {:class=>"col-sm-1 control-label"} %>
+    <div class="col-sm-1">
+      <%= f.number_field :probability, {:class=>"form-control", :value => (number_with_precision(@risk.probability, :precision => 0) || 0)}%>
+    </div>
+    <%= f.label :impact, {:class=>"col-sm-1 control-label"} %>
+    <div class="col-sm-1">
+      <%= f.number_field :impact, {:class=>"form-control", :value => (number_with_precision(@risk.impact, :precision => 0) || 0)} %>
+    </div>
+    <%= f.label :exposure, {:class=>"col-sm-1 control-label"} %>
+    <div class="col-sm-1">
+      <%= f.number_field :exposure, {:class=>"form-control", :value => (number_with_precision(@risk.exposure, :precision => 0) || 0)}%>
+    </div>
+  </div>
+
+<h3> Mitigation </h3>
   <div class="form-group">
     <%= f.label :mitigation, {:class=>"col-sm-2 control-label"} %>
     <div class="col-sm-5">

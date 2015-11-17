@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005165916) do
+ActiveRecord::Schema.define(version: 20151117002449) do
 
   create_table "mitigations", force: :cascade do |t|
     t.string   "title"
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 20151005165916) do
     t.boolean  "riskaccept"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "probability"
+    t.decimal  "impact"
+    t.decimal  "exposure"
   end
 
   add_index "risks", ["mitigation_id"], name: "index_risks_on_mitigation_id"

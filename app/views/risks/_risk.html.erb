@@ -6,6 +6,15 @@
     <div class="col-sm-2">Description:</div>
     <%= risk.threat.description %>
   </li>
+  <li class="list-group-item">
+    <div class="col-sm-1 col-xs-3">Probability:</div>
+    <div class="col-sm-1 col-xs-9"><%= (number_with_precision(@risk.probability, :precision => 0) || 0) %></div>
+    <div class="col-sm-1 col-xs-3">Impact:</div>
+    <div class="col-sm-1 col-xs-9"><%= (number_with_precision(@risk.impact, :precision => 0) || 0) %></div>
+    <div class="col-sm-1 col-xs-3">Exposure:</div>
+    <div class="col-sm-1 col-xs-9"><%= (number_with_precision(@risk.exposure, :precision => 0) || 0) %></div>
+    &nbsp;
+  </li> 
   <% if risk.riskaccept %>
     <li class="list-group-item list-group-item-warning">
       <strong>Risk Accept</strong>
