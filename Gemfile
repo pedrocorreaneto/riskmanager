@@ -49,7 +49,5 @@ group :development do
 
   gem 'seed_dump'
 end
+gem 'pg'
 
-group :test do 
-  gem 'pg'
-end
