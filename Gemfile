@@ -50,4 +50,4 @@ group :development do
   gem 'seed_dump'
 end
 gem 'pg'
-
+gem 'rails_12factor'
