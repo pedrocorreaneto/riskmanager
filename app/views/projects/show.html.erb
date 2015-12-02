@@ -40,7 +40,7 @@
 <% end %>
 
 <% if @threats.size > 0 %>
-  <h3>Add a Security Risks:</h3>
+  <h3>Add a Security Risk:</h3>
   <%= form_for([@project, @risk], :html=>{:class => "form-inline"}) do |f| %>
     <div class="form-group">
       <%= f.label "Threat:", {:class=>"control-label"} %>
