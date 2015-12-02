@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117002449) do
+ActiveRecord::Schema.define(version: 20151202211848) do
 
   create_table "mitigations", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.text     "cons"
+    t.text     "consequences"
     t.integer  "usedtimes"
     t.integer  "threat_id"
     t.datetime "created_at"
