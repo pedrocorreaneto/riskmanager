@@ -1,6 +1,6 @@
 class Mitigation < ActiveRecord::Base
   belongs_to :threat
-  has_many :risks
+  has_and_belongs_to_many :risks
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :description, length: { in: 5..256 }

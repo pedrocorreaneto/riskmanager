@@ -23,19 +23,20 @@
     </div>
   </div>
 
-<h3> Mitigation </h3>
-  <div class="form-group">
-    <%= f.label :mitigation, {:class=>"col-sm-2 control-label"} %>
-    <div class="col-sm-5">
-      <%= f.select :mitigation_id, @mitigations.collect {|s| [s.title,s.id]}, {}, {:class=>"form-control"} %>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="checkbox col-sm-2 text-right">
-      <%= f.check_box :riskaccept %>Risk accept
-    </div>
+<h3> Mitigations </h3>
+
+    <% @risk.threat.mitigations.each do |mitigation|%>
+    <div class="check_box">
+      <label>
+        <%= f.check_box :mitigation_ids, {:multiple => true}, mitigation.id, nil %>
+        <%= mitigation.title %>
+      </label>
+   </div>
+   <% end %>
+
     <%= f.submit'Save', {:class=>"btn btn-default"} %>
-  </div>
 <% end %>
+<br/>
 <%= render @mitigations %>
-<%= link_to 'Back', project_path(@risk.project), {:class=>"btn btn-default"} %>
+<%= link_to 'Back', project_risk_path(@risk.project, @risk), {:class=>"btn btn-default"} %>
+</div>
