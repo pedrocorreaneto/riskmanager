@@ -5,7 +5,7 @@ class Mitigation < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :description, length: { minimum: 5 }
   validates :threat, presence: true
-
+  validates :reference, :url => {:allow_blank => true}
   before_destroy :check_for_risks
   def check_for_risks
     if self.risks.size > 0
