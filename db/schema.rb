@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203000201) do
+ActiveRecord::Schema.define(version: 20151203040257) do
 
   create_table "mitigations", force: :cascade do |t|
     t.string   "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151203000201) do
     t.integer  "threat_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "reference"
   end
 
   add_index "mitigations", ["threat_id"], name: "index_mitigations_on_threat_id"

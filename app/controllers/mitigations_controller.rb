@@ -54,6 +54,6 @@ class MitigationsController < ApplicationController
     end
 
     def mitigation_params
-      params.require(:mitigation).permit(:title,:description,:consequences)
+      params.require(:mitigation).permit(:title,:description,:consequences,:reference)
     end
 end

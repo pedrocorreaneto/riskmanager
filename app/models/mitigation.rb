@@ -3,7 +3,7 @@ class Mitigation < ActiveRecord::Base
   has_and_belongs_to_many :risks
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }
-  validates :description, length: { in: 5..256 }
+  validates :description, length: { minimum: 5 }
   validates :threat, presence: true
 
   before_destroy :check_for_risks

@@ -12,7 +12,7 @@ class Threat < ActiveRecord::Base
   has_many :mitigations, dependent: :destroy
   has_many :risks
   validates :title, presence: true, uniqueness: { case_sensitive: false }
-  validates :description, length: { in: 5..256 }
+  validates :description, length: { minimum: 5 }
   validates :category, inclusion: { :in=> Threat::CATEGORY.values}
   def check_for_risks
     if self.risks.size > 0

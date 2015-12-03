@@ -22,9 +22,9 @@
       <%= f.number_field :exposure, {:class=>"form-control", :value => (number_with_precision(@risk.exposure, :precision => 0) || 0)}%>
     </div>
   </div>
-
-<h3> Mitigations </h3>
-
+<% if @risk.threat.mitigations.size > 0 %>
+  <h3> Mitigations </h3>
+<% end %>
     <% @risk.threat.mitigations.each do |mitigation|%>
     <div class="check_box">
       <label>
