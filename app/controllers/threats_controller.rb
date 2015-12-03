@@ -80,6 +80,6 @@ class ThreatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def threat_params
-      params.require(:threat).permit(:title, :category, :description)
+      params.require(:threat).permit(:title, :category, :description, :context)
     end
 end

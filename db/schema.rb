@@ -11,19 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117002449) do
+ActiveRecord::Schema.define(version: 20151203040257) do
 
   create_table "mitigations", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.text     "cons"
+    t.text     "consequences"
     t.integer  "usedtimes"
     t.integer  "threat_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "reference"
   end
 
   add_index "mitigations", ["threat_id"], name: "index_mitigations_on_threat_id"
+
+  create_table "mitigations_risks", id: false, force: :cascade do |t|
+    t.integer "risk_id"
+    t.integer "mitigation_id"
+  end
+
+  add_index "mitigations_risks", ["mitigation_id"], name: "index_mitigations_risks_on_mitigation_id"
+  add_index "mitigations_risks", ["risk_id"], name: "index_mitigations_risks_on_risk_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -35,7 +44,6 @@ ActiveRecord::Schema.define(version: 20151117002449) do
   create_table "risks", force: :cascade do |t|
     t.integer  "project_id"
     t.integer  "threat_id"
-    t.integer  "mitigation_id"
     t.boolean  "riskaccept"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,7 +52,6 @@ ActiveRecord::Schema.define(version: 20151117002449) do
     t.decimal  "exposure"
   end
 
-  add_index "risks", ["mitigation_id"], name: "index_risks_on_mitigation_id"
   add_index "risks", ["project_id"], name: "index_risks_on_project_id"
   add_index "risks", ["threat_id"], name: "index_risks_on_threat_id"
 
@@ -54,6 +61,7 @@ ActiveRecord::Schema.define(version: 20151117002449) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "context"
   end
 
 end

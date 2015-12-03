@@ -25,7 +25,7 @@ class RisksController < ApplicationController
     respond_to do |format|
       if @risk.update(risks_params)
 	flash[:success]= 'Risk was successfully updated.'
-        format.html { redirect_to @risk.project }
+        format.html { redirect_to project_risk_path(@risk.project, @risk) }
         format.json { render :show, status: :ok, location: @risk.project }
       else
 	flash_error
@@ -42,10 +42,8 @@ class RisksController < ApplicationController
      @risk =  Risk.find params[:id]
    end
    def risks_params
-     par=params.require(:risk).permit(:threat_id, :mitigation_id, :riskaccept, :probability, :impact, :exposure)
-     par[:riskaccept] = true if par[:mitigation_id].nil?
-     ###XGH DETECTED
-     par[:mitigation_id] = nil if par[:riskaccept] =='1'
+     par=params.require(:risk).permit(:threat_id, {:mitigation_ids=>[]} , :riskaccept, :probability, :impact, :exposure)
+     par["mitigation_ids"] ||= []
      par
    end
 end

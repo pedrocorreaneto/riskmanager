@@ -7,8 +7,12 @@
     <%= mitigation.description %>
   </li>
   <li class="list-group-item">
-    <div class="col-sm-2">Cons:</div>
-    <%= mitigation.cons %>
+    <div class="col-sm-2">Consequences:</div>
+    <%= mitigation.consequences %>&nbsp;
+  </li>
+  <li class="list-group-item">
+    <div class="col-sm-2">Reference:</div>
+    <%=link_to mitigation.reference, mitigation.reference, {:target => "_blank"} if not mitigation.reference.nil?%>&nbsp;
   </li>
   <li class="list-group-item">
     <div class="col-sm-2">Used Times:</div>
