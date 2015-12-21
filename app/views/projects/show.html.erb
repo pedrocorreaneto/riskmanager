@@ -29,7 +29,10 @@
     <tbody>
       <% @project.risks.each do |risk| %>
         <tr>
-          <td><%= risk.threat.title %></td>
+          <% textclass = "text-success" %>
+          <% textclass = "text-danger" if risk.mitigations.size == 0 %>
+
+          <td class=<%= textclass %>><%= risk.threat.title %></td>
           <td><%= link_to ' ', [@project, risk] ,{:class=> "glyphicon glyphicon-search"}%></td>
           <td><%= link_to ' ', edit_project_risk_path(@project, risk),{:class=>"glyphicon glyphicon-pencil"} %></td>
           <td><%= link_to '' , [@project, risk] ,method: :delete, data: { confirm: 'Are you sure?' }, :class=> "glyphicon glyphicon-trash" %></td>
